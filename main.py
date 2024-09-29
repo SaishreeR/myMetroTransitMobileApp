@@ -5,7 +5,6 @@ from kivymd.app import MDApp
 from kivymd.uix.navigationbar import MDNavigationBar, MDNavigationItem
 from kivymd.uix.screen import MDScreen
 
-
 class BaseMDNavigationItem(MDNavigationItem):
     icon = StringProperty()
     text = StringProperty()
@@ -68,15 +67,6 @@ MDBoxLayout:
 
 
 class myMetroTransitApp(MDApp):
-    def on_switch_tabs(
-        self,
-        bar: MDNavigationBar,
-        item: MDNavigationItem,
-        item_icon: str,
-        item_text: str,
-    ):
-        self.root.ids.screen_manager.current = item_text
-
     def build(self):
         return Builder.load_file('main.kv')
 

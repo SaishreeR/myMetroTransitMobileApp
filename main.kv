@@ -1,21 +1,14 @@
 MDScreen:
-  name: "main"
+  name:"main"
   MDFloatLayout:
     md_bg_color: [1, 1, 1, 1,]
     Image:
-      source: "assets/logo.png"
+      source: "assets/sidelogo.png"
       pos_hint: {"center_x": .18, "center_y": .95}
     Image:
-      source: "assets/back.jpg"
+      source: "assets/mainlogo.png"
       size_hint: .8, .8
       pos_hint: {"center_x": .5, "center_y": .65} 
-    MDLabel:
-      text: "H e l l o!"
-      font_name: "BPoppins"
-      font_size: "23sp"
-      pos_hint: {"center_y": .38}
-      halign: "center"
-      color: rgba(34, 34, 34, 255)
     MDLabel:
       text: "One place for MASS TRANSIT information"
       font_name: "MPoppins"
@@ -23,4 +16,13 @@ MDScreen:
       pos_hint: {"center_x": .5, "center_y": .3}
       halign: "center"
       color: rgba(127, 127, 127, 255)
+    MDButton:
+      style: "elevated"
+      pos_hint: {"center_x": .5, "center_y": .15}
+      MDButtonText:
+        text: "Sign Up"
+      
+
+
+  
 
