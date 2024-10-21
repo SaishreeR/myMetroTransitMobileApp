@@ -35,7 +35,7 @@ MDScreen:
         MDTextField:
             id: txtUsername
             hint_text: "User Name"
-            pos_hint: {"center_x": .55, "center_y": .52}
+            pos_hint: {"center_x": .65, "center_y": .52}
             size_hint_x: .5
             icon_right: 'account'
         MDLabel:
@@ -45,7 +45,7 @@ MDScreen:
         MDTextField:
             id: txtPassword
             hint_text: "Password"
-            pos_hint: {"center_x": .55, "center_y": .42}
+            pos_hint: {"center_x": .65, "center_y": .42}
             size_hint_x: .5
             password: True
             icon_right: 'eye-off'
@@ -72,6 +72,7 @@ MDScreen:
                     txtPassword.password = False if txtPassword.password == True else True
         MDButton:
             style: "filled"
+            pos_hint: {"center_x": .45, "center_y": .22}
             on_release:
                 root.manager.transition.direction = "right"
                 root.manager.current = "app-home"
@@ -79,9 +80,9 @@ MDScreen:
                 text: "Sign In"
                 text_color: "white"
                 md_bg_color: "black"
-                pos_hint: {"center_x": .3, "center_y": .22}
         MDButton:
             style: "filled"
+            pos_hint: {"center_x": .80, "center_y": .22}
             on_release:
                 root.manager.transition.direction = "right"
                 root.manager.current = "app-signup"
@@ -89,7 +90,7 @@ MDScreen:
                 text: "Sign Up"
                 text_color: "white"
                 md_bg_color: "black"
-                pos_hint: {"center_x": .6, "center_y": .22}
+
        
 
 

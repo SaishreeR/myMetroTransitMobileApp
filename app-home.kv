@@ -1,11 +1,93 @@
 MDScreen:
     name: "app-home"
-    MDLabel:
-        text: "Home PAge"
-        halign: "center"
-        pos_hint: {"center_x": .51, "center_y": .33}
-        theme_text_color: "Custom"
-        font_size: "15sp"
+    id: myHomeMainScreen
+    MDBoxLayout:
+        orientation:"vertical"
+        md_bg_color: self.theme_cls.backgroundColor
+
+        MDScreenManager:
+            id: myHomeScreen
+            MDScreen:
+                name: "My Tickets"
+                MDButton:
+                    style: "elevated"
+                    on_release:
+                        root.manager.transition.direction = "right"
+                        root.manager.current = "app-home"
+                    MDButtonText:
+                        text: "Sign In"
+                        text_color: "white"
+                        md_bg_color: "black"
+                        pos_hint: {"center_x": .70, "center_y": .22}
+            MDScreen:
+                name: "Home"
+                Button:
+                    pos_hint: {"center_x": .45, "center_y": .90}
+                    shadow_color: "white"
+                    size_hint: .9, .1
+                    text_color: "white"
+                    background_color: "blue"
+                    text: "Buy Tickets      > "
+                    on_release:
+                        root.manager.transition.direction = "right"
+                        root.manager.current = "app-buytickets"
+                Button:
+                    pos_hint: {"center_x": .45, "center_y": .75}
+                    shadow_color: "white"
+                    size_hint: .9, .1
+                    text_color: "white"
+                    background_color: "blue"
+                    text: "Departure Vision      > "
+                    on_release:
+                        root.manager.transition.direction = "right"
+                        root.manager.current = "app-departurevision"
+                Button:
+                    pos_hint: {"center_x": .45, "center_y": .60}
+                    shadow_color: "white"
+                    size_hint: .9, .1
+                    text_color: "white"
+                    background_color: "blue"
+                    text: "Schedules      > "
+                    on_release:
+                        root.manager.transition.direction = "right"
+                        root.manager.current = "app-schedules"
+                Button:
+                    pos_hint: {"center_x": .45, "center_y": .45}
+                    shadow_color: "white"
+                    size_hint: .9, .1
+                    text_color: "white"
+                    background_color: "blue"
+                    text: "NJS Rewards      > "
+                    on_release:
+                        root.manager.transition.direction = "right"
+                        root.manager.current = "app-njsrewards"
+            MDScreen:
+                name: "About"
+                MDLabel:
+                    text:"About"
+                    font_size: "18sp"
+                    pos_hint: {"center_x": .615, "center_y": .949}
+
+        MDNavigationBar:
+            on_switch_tabs: app.on_switch_tabs(*args)
+            MDNavigationItem:
+                MDNavigationItemIcon:
+                    icon: "home"
+                MDNavigationItemLabel:
+                    text: "My Tickets"
+            MDNavigationItem:
+                MDNavigationItemIcon:
+                    icon: "home"
+                MDNavigationItemLabel:
+                    text: "Home"
+            MDNavigationItem:
+                MDNavigationItemIcon:
+                    icon: "home"
+                MDNavigationItemLabel:
+                    text: "About"
+
+
+
 
 
 

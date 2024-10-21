@@ -1,11 +1,10 @@
 from kivy.clock import Clock
-from kivy.lang import Builder
-from kivy.properties import StringProperty
 from kivy.core.window import Window
+from kivy.lang import Builder
 from kivymd.app import MDApp
-from kivymd.uix.navigationbar import MDNavigationBar, MDNavigationItem
-from kivymd.uix.screen import MDScreen
 from kivymd.uix.screenmanager import ScreenManager
+from kivymd.uix.navigationbar import MDNavigationBar, MDNavigationItem
+
 Window.size = (350, 580)
 
 class MyMMTApp(MDApp):
@@ -16,6 +15,11 @@ class MyMMTApp(MDApp):
         screen_manager.add_widget(Builder.load_file("app-splash.kv"))
         screen_manager.add_widget(Builder.load_file("app-login.kv"))
         screen_manager.add_widget(Builder.load_file("app-home.kv"))
+        screen_manager.add_widget(Builder.load_file("app-buytickets.kv"))
+        screen_manager.add_widget(Builder.load_file("app-departurevision.kv"))
+        screen_manager.add_widget(Builder.load_file("app-schedules.kv"))
+        screen_manager.add_widget(Builder.load_file("app-njsrewards.kv"))
+        screen_manager.add_widget(Builder.load_file("app-rail.kv"))
         return screen_manager
     
     def on_start(self):
@@ -26,6 +30,16 @@ class MyMMTApp(MDApp):
         
     def homes(self, *args):
         screen_manager.current = "app-home"
+
+    def on_switch_tabs(
+            self,
+            bar: MDNavigationBar,
+            item: MDNavigationItem,
+            item_icon: str,
+            item_text: str,
+    ):
+
+        screen_manager.current_screen.ids["myHomeScreen"].current = item_text
             
 if __name__ == "__main__":
     MyMMTApp().run()
