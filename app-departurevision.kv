@@ -1,0 +1,39 @@
+MDScreen:
+    name: "app-departurevision"
+    MDBoxLayout:
+        orientation:"vertical"
+        md_bg_color: self.theme_cls.backgroundColor
+
+        MDScreenManager:
+            MDScreen:
+                name: "Home"
+                Button:
+                    pos_hint: {"center_x": .45, "center_y": .90}
+                    shadow_color: "white"
+                    size_hint: .9, .1
+                    text_color: "white"
+                    background_color: "blue"
+                    text: "Rail      > "
+                    on_release:
+                        root.manager.transition.direction = "right"
+                        root.manager.current = "app-rail"
+                Button:
+                    pos_hint: {"center_x": .45, "center_y": .75}
+                    shadow_color: "white"
+                    size_hint: .9, .1
+                    text_color: "white"
+                    background_color: "blue"
+                    text: "Bus      > "
+                    on_release:
+                        root.manager.transition.direction = "right"
+                        root.manager.current = "app-departurevision"
+                Button:
+                    pos_hint: {"center_x": .45, "center_y": .60}
+                    shadow_color: "white"
+                    size_hint: .9, .1
+                    text_color: "white"
+                    background_color: "blue"
+                    text: "Light Rail      > "
+                    on_release:
+                        root.manager.transition.direction = "right"
+                        root.manager.current = "app-departurevision"
