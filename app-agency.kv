@@ -1,0 +1,65 @@
+MDScreen:
+    name: "app-agency"
+    MDBoxLayout:
+        orientation:"vertical"
+        md_bg_color: self.theme_cls.backgroundColor
+
+        MDScreenManager:
+            MDScreen:
+                name: "AgencyList"
+                Image:
+                    source: "assets/mtm.png"
+                    size_hint: .26,.26
+                    pos_hint: {"center_y": .80}
+                Button:
+                    pos_hint: {"center_x": .65, "center_y": .80}
+                    size_hint:1.0,.1
+                    font_size:"30sp"
+                    background_color:"blue"
+                    halign: "left"
+                    text: "NJIT        >"
+                    on_release:
+                        root.manager.transition.direction = "right"
+                        root.manager.current = "app-buytickets"
+                Image:
+                    source: "assets/mtm.png"
+                    size_hint: .26,.26
+                    pos_hint: {"center_y": .65}
+                Button:
+                    pos_hint: {"center_x": .65, "center_y": .65}
+                    size_hint:1.0,.1
+                    font_size:"30sp"
+                    background_color:"blue"
+                    text: "LACMTA      >"
+                    halign: "left"
+                    on_release:
+                        root.manager.transition.direction = "right"
+                        root.manager.current = "app-departurevision"
+                MDIconButton:
+                    icon: "store-clock"
+                    font_size:"30sp"
+                    pos_hint: {"center_y": .50}
+                Button:
+                    pos_hint: {"center_x": .65, "center_y": .50}
+                    size_hint:1.0,.1
+                    font_size:"30sp"
+                    background_color:"blue"
+                    text: "Schedules          >"
+                    halign: "left"
+                    on_release:
+                        root.manager.transition.direction = "right"
+                        root.manager.current = "app-schedules"
+                MDIconButton:
+                    icon: "seal"
+                    font_size:"30sp"
+                    pos_hint: {"center_y": .35}
+                Button:
+                    pos_hint: {"center_x": .65, "center_y": .35}
+                    size_hint:1.0,.1
+                    font_size:"30sp"
+                    background_color:"blue"
+                    text: "Rewards            >"
+                    halign: "left"
+                    on_release:
+                        root.manager.transition.direction = "right"
+                        root.manager.current = "app-njsrewards"

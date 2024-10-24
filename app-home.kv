@@ -7,74 +7,153 @@ MDScreen:
 
         MDScreenManager:
             id: myHomeScreen
-            MDScreen:
-                name: "My Tickets"
-                MDButton:
-                    style: "elevated"
-                    on_release:
-                        root.manager.transition.direction = "right"
-                        root.manager.current = "app-home"
-                    MDButtonText:
-                        text: "Sign In"
-                        text_color: "white"
-                        md_bg_color: "black"
-                        pos_hint: {"center_x": .70, "center_y": .22}
+#            MDScreen:
+#                name: "My Tickets"
+#                MDLabel:
+#                    text: "My Tickets Page"
+#                    font_size: "18sp"
+#                    pos_hint: {"center_x": .615, "center_y": .949}
             MDScreen:
                 name: "Home"
+                MDIconButton:
+                    icon: "ticket-account"
+                    font_size:"30sp"
+                    pos_hint: {"center_y": .80}
                 Button:
-                    pos_hint: {"center_x": .45, "center_y": .90}
-                    shadow_color: "white"
-                    size_hint: .9, .1
-                    text_color: "white"
-                    background_color: "blue"
-                    text: "Buy Tickets      > "
+                    pos_hint: {"center_x": .65, "center_y": .80}
+                    size_hint:1.0,.1
+                    font_size:"30sp"
+                    background_color:"blue"
+                    halign: "left"
+                    text: "Buy Tickets        >"
+#                    on_release:
+#                        root.manager.transition.direction = "right"
+#                        root.manager.current = "app-buytickets"
+                MDIconButton:
+                    icon: "train-bus"
+                    font_size:"30sp"
+                    pos_hint: {"center_y": .65}
+                Button:
+                    pos_hint: {"center_x": .65, "center_y": .65}
+                    size_hint:1.0,.1
+                    font_size:"30sp"
+                    background_color:"blue"
+                    text: "Departure Info    >"
+                    halign: "left"
                     on_release:
                         root.manager.transition.direction = "right"
-                        root.manager.current = "app-buytickets"
+                        root.manager.current_screen.ids["myHomeScreen"].current = "agency_screen"
+                MDIconButton:
+                    icon: "store-clock"
+                    font_size:"30sp"
+                    pos_hint: {"center_y": .50}
                 Button:
-                    pos_hint: {"center_x": .45, "center_y": .75}
-                    shadow_color: "white"
-                    size_hint: .9, .1
-                    text_color: "white"
-                    background_color: "blue"
-                    text: "Departure Vision      > "
-                    on_release:
-                        root.manager.transition.direction = "right"
-                        root.manager.current = "app-departurevision"
-                Button:
-                    pos_hint: {"center_x": .45, "center_y": .60}
-                    shadow_color: "white"
-                    size_hint: .9, .1
-                    text_color: "white"
-                    background_color: "blue"
-                    text: "Schedules      > "
+                    pos_hint: {"center_x": .65, "center_y": .50}
+                    size_hint:1.0,.1
+                    font_size:"30sp"
+                    background_color:"blue"
+                    text: "Schedules          >"
+                    halign: "left"
                     on_release:
                         root.manager.transition.direction = "right"
                         root.manager.current = "app-schedules"
+                MDIconButton:
+                    icon: "seal"
+                    font_size:"30sp"
+                    pos_hint: {"center_y": .35}
                 Button:
-                    pos_hint: {"center_x": .45, "center_y": .45}
-                    shadow_color: "white"
-                    size_hint: .9, .1
-                    text_color: "white"
-                    background_color: "blue"
-                    text: "NJS Rewards      > "
+                    pos_hint: {"center_x": .65, "center_y": .35}
+                    size_hint:1.0,.1
+                    font_size:"30sp"
+                    background_color:"blue"
+                    text: "Rewards            >"
+                    halign: "left"
                     on_release:
                         root.manager.transition.direction = "right"
                         root.manager.current = "app-njsrewards"
             MDScreen:
                 name: "About"
-                MDLabel:
-                    text:"About"
-                    font_size: "18sp"
-                    pos_hint: {"center_x": .615, "center_y": .949}
+                ProfileCard:
+                    orientation: "vertical"
+                    padding: 20
+                    spacing: 10
+
+                    Image:
+                        source: "assets/mainlogo.png"
+                        size_hint: None, None
+                        size: 150, 150
+
+                    MDLabel:
+                        text: "Author - Saishree Ramkumar"
+                        font_style: "Body"
+                        theme_text_color: "Primary"
+
+
+                    MDLabel:
+                        text: "About myMetroTransmitMobileApp Ver 1.0"
+                        font_style: "Body"
+                        theme_text_color: "Primary"
+
+                    MDLabel:
+                        text: "One App for Mass Transit"
+                        font_style: "Body"
+                        theme_text_color: "Secondary"
+                    MDLabel:
+                        text: "myMetroTransmitMobileApp Ver 1.0"
+                        font_name: "BPoppins"
+                        font_size: "20sp"
+                        pos_hint: {"center_x": .56, "center_y": .82}
+                        color: rgba(71,92,119,255)
+            MDScreen:
+                name: "agency_screen"
+                id: agency_screen
+                MDIconButton:
+                    icon: "arrow-right-bold-circle-outline"
+                    font_size:"50sp"
+                    pos_hint: {"center_y": .80}
+                Button:
+                    pos_hint: {"center_x": .65, "center_y": .80}
+                    size_hint:1.0,.1
+                    font_size:"30sp"
+                    background_color:"blue"
+                    halign: "left"
+                    text: "NJT         >"
+                    on_release:
+                        root.manager.transition.direction = "right"
+                        root.manager.current_screen.ids["myHomeScreen"].current = "routes_nj_screen"
+                MDIconButton:
+                    icon: "arrow-right-bold-circle-outline"
+                    font_size:"50sp"
+                    pos_hint: {"center_y": .65}
+                Button:
+                    pos_hint: {"center_x": .65, "center_y": .65}
+                    size_hint:1.0,.1
+                    font_size:"30sp"
+                    background_color:"blue"
+                    text: "LACMTA      >"
+                    halign: "left"
+                    on_release:
+                        root.manager.transition.direction = "right"
+                        root.manager.current_screen.ids["myHomeScreen"].current = "routes_lacmta_screen"
+            MDScreen:
+                name: "routes_nj_screen"
+                id: routes_nj_screen
+                on_enter: app.on_routes_nj_screen_enter()
+                on_leave: app.on_routes_nj_screen_leave()
+
+            MDScreen:
+                name: "routes_lacmta_screen"
+                id: routes_lacmta_screen
+                on_enter: app.on_routes_lacmta_screen_enter()
+                on_leave: app.on_routes_lacmta_screen_leave()
 
         MDNavigationBar:
             on_switch_tabs: app.on_switch_tabs(*args)
-            MDNavigationItem:
-                MDNavigationItemIcon:
-                    icon: "home"
-                MDNavigationItemLabel:
-                    text: "My Tickets"
+#            MDNavigationItem:
+#                MDNavigationItemIcon:
+#                    icon: "ticket"
+#                MDNavigationItemLabel:
+#                    text: "My Tickets"
             MDNavigationItem:
                 MDNavigationItemIcon:
                     icon: "home"
@@ -82,9 +161,14 @@ MDScreen:
                     text: "Home"
             MDNavigationItem:
                 MDNavigationItemIcon:
-                    icon: "home"
+                    icon: "information"
                 MDNavigationItemLabel:
                     text: "About"
+            MDNavigationItem:
+                MDNavigationItemIcon:
+                    icon: "logout"
+                MDNavigationItemLabel:
+                    text: "Logout"
 
 
 
